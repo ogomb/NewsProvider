@@ -36,7 +36,7 @@ public class NewsSourcesManager {
     public static NewsSourcesManager get(Context context){
         if (newsSourcesManager == null){
             Gson gson = new GsonBuilder().create();
-            OkHttpClient client = setUpCache();
+            OkHttpClient client = setUpCache(context);
             RestAdapter adapter = new RestAdapter.Builder()
                     .setEndpoint(NEWS_ENDPOINT)
                     .setConverter(new GsonConverter(gson))
@@ -52,6 +52,7 @@ public class NewsSourcesManager {
         this.context = context.getApplicationContext();
         newsListenerList = new ArrayList<>();
         restAdapter = adapter;
+        articles = new ArrayList<>();
     }
 
     public static NewsSourcesManager get(Context context, RestAdapter adapter){
@@ -70,7 +71,7 @@ public class NewsSourcesManager {
 
     public void fetchNewsData(){
         NewsInterface newsInterface = restAdapter.create(NewsInterface.class);
-        newsInterface.getAllNews("bitcoin", new Callback<ArticlesResponse>() {
+        newsInterface.getAllNews("business", new Callback<ArticlesResponse>() {
             @Override
             public void success(ArticlesResponse articlesResponse, Response response) {
                 articles = articlesResponse.getArticleList();
@@ -102,8 +103,8 @@ public class NewsSourcesManager {
         return articles;
     }
 
-    private static OkHttpClient setUpCache(){
-        File cacheDirectory = new File(Environment.getExternalStorageDirectory(), "HttpCache");
+    private static OkHttpClient setUpCache(Context context){
+        File cacheDirectory = new File(String.valueOf(context.getCacheDir()));
         int cacheSize = 10 * 1024 * 1024;
         OkHttpClient client = new OkHttpClient();
         Cache cache = null;

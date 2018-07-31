@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import com.example.ogomb.myapplication.DetailNewsActivity;
+import com.example.ogomb.myapplication.controller.DetailNewsActivity;
 import com.example.ogomb.myapplication.R;
 import com.example.ogomb.myapplication.model.Article;
 import com.squareup.picasso.Picasso;

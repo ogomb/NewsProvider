@@ -6,9 +6,7 @@
             android:id="@+id/news_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:paddingTop="40dp"
-            style="@style/RoundImage"/>
-
+            android:paddingTop="40dp"/>
     <TextView
             android:id="@+id/news_title"
             android:layout_width="match_parent"
@@ -30,5 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/news_description"
             android:layout_toRightOf="@id/news_image"
-            android:padding="4dp"/>
+            android:padding="4dp"
+            style="?android:listSeparatorTextViewStyle"
+            android:paddingBottom="10dp"/>
 </RelativeLayout>

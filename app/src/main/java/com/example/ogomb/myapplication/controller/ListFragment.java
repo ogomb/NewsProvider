@@ -1,4 +1,4 @@
-package com.example.ogomb.myapplication;
+package com.example.ogomb.myapplication.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.ogomb.myapplication.R;
 import com.example.ogomb.myapplication.listener.NewsSearchListener;
 import com.example.ogomb.myapplication.model.Article;
 import com.example.ogomb.myapplication.view.NewsAdapter;

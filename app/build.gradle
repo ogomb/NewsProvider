@@ -16,6 +16,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/*'
+        exclude 'META-INF/plexus/*'
+        exclude 'licenses/*'
+        exclude 'org/codehaus/plexus/*'
+        exclude 'org/apache/maven/project/pom-4.0.0.xml'
+        exclude 'org/cyberneko/html/res/*'
+
+
+    }
 }
 
 dependencies {
@@ -30,7 +40,12 @@ dependencies {
     implementation 'com.android.support:support-v4:28.0.0-alpha3'
     implementation 'com.squareup.picasso:picasso:2.3.2'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-    implementation 'org.robolectric:robolectric:4.0-alpha-3'
+    testImplementation 'org.robolectric:robolectric:3.0'
     implementation 'org.mockito:mockito-core:2.20.1'
     implementation 'com.squareup.okhttp:okhttp:2.0.0'
+    implementation 'com.squareup.okhttp:okhttp-urlconnection:2.2.0'
+}
+
+configurations {
+    all*.exclude group: 'commons-logging', module: 'commons-logging'
 }
